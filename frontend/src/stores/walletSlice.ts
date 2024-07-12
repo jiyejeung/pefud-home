@@ -9,7 +9,7 @@ interface WalletState {
 const initialState: WalletState = {
   chainId: -1,
   walletAddress: '',
-  permissionAddresses: [],
+  permissionAddresses: []
 };
 
 const walletSlice = createSlice({
@@ -24,8 +24,8 @@ const walletSlice = createSlice({
     },
     setPermissionAddresses(state, action) {
       state.permissionAddresses = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { setChainId, setWalletAddress, setPermissionAddresses } = walletSlice.actions;

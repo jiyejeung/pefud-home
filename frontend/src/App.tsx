@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Router>
+        <Router basename='https://jiyejeung.github.io/pefud-home/'>
           <Routes>
             <Route path='/' element={<Main />} />
           </Routes>

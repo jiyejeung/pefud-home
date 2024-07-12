@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Container from '../layouts/Container';
-import Footer from '../layouts/Footer';
+// import Footer from '../layouts/Footer';
 import Section from '../layouts/Section';
 
 const Main = () => {
-  const slide = 'animate-[shake-vertical-pefud_1s]';
+  // const slide = 'animate-[shake-vertical-pefud_1s]';
 
   const [bounceHandler, setBounceHandler] = useState(false);
 
@@ -25,7 +25,7 @@ const Main = () => {
   const handleMouseLeave = () => {
     setIsOnHover(false);
   };
-  const test = ' d:bg-red l:bg-orange p:bg-yellow t:bg-green m:bg-blue';
+  // const test = ' d:bg-red l:bg-orange p:bg-yellow t:bg-green m:bg-blue';
 
   /*
    ${isOnHover === true && countHover < 20 ? ' w-100% h-50% ' : ' h-90% w-90%'} ${countHover >= 20 ? ' animate-[smooth-show_2s]' : ''}`} 
