@@ -26,6 +26,10 @@ const Main = () => {
     setIsOnHover(false);
   };
   const test = ' d:bg-red l:bg-orange p:bg-yellow t:bg-green m:bg-blue';
+
+  /*
+   ${isOnHover === true && countHover < 20 ? ' w-100% h-50% ' : ' h-90% w-90%'} ${countHover >= 20 ? ' animate-[smooth-show_2s]' : ''}`} 
+  */
   return (
     <>
       <Container>
@@ -36,7 +40,7 @@ const Main = () => {
           </div>
           <div className='flexRow w-100%'>
             <div className='cursor-pointer bg-cover bg-no-repeat bg-center w-40% pb-48% relative' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <div className={`h-90% bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === true && countHover < 20 ? 'w-100% h-60%' : ' w-90%'}`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }}></div>
+              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === false && countHover < 20 ? 'w-100% h-90%' : isOnHover === true && countHover < 20 ? 'w-100% h-60%' : 'animate-[smooth-show_1.2s] w-100% h-90%'}`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }}></div>
             </div>
             <div className='flexCol w-60% relative mt-3rem'>
               <div className='bg-contain bg-no-repeat bg-center w-30% h-15rem absolute top-[-10rem] ml-5rem' style={{ backgroundImage: 'url("/images/3.svg")', rotate: '0deg' }}></div>

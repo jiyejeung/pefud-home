@@ -50284,6 +50284,8 @@ export default {
           '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-5px)' },
           '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-20px)' }
         },
+        'smooth-show': { '0%': { transform: 'rotate(-1800deg)', opacity: 0 }, '100%': { transform: 'rotate(0)', opacity: 1 } },
+
         bounced: {
           '0%': {
             transform: 'translateY(-300px)',
