@@ -13,8 +13,9 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    // "error": "single",
-    "react/no-unescaped-entities": "off"
+    "error": "single",
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "import/resolver": {

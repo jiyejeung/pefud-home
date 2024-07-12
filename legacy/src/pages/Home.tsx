@@ -27,7 +27,6 @@ const Home = () => {
           <div className='max-w-128rem border border-white w-100% h-100rem '></div>
         </div>
       </div>
-      {/* <div className='w-100% h-100% z-10'></div> */}
     </>
   );
 };

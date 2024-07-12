@@ -1,22 +1,20 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
 import store from './stores/store';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Main from './pages/Main';
 
-import Home from './pages/Home';
-import Minting from './pages/Minting';
-
-function App() {
+const App = () => {
   return (
-    <Provider store={store}>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/minting' element={<Minting />} />
-        </Routes>
-      </Router>
-    </Provider>
+    <>
+      <Provider store={store}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<Main />} />
+          </Routes>
+        </Router>
+      </Provider>
+    </>
   );
-}
+};
 
 export default App;

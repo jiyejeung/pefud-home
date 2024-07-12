@@ -5,25 +5,19 @@
 @layer base {
   * {
     @apply text-[10px];
-    /* @apply font-sans; */
+    @apply font-sans;
     @apply box-border;
     @apply outline-1;
-    @apply custom;
   }
   *::-webkit-scrollbar {
     display: none;
   }
   * {
     scrollbar-width: none;
-    font-family: 'Carter One', system-ui;
   }
 }
 
 @layer components {
-  .custom {
-    color: #101010;
-  }
-
   .flexRow {
     @apply flex flex-row justify-center items-center;
   }

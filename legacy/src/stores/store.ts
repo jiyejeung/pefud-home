@@ -4,8 +4,8 @@ import walletReducer from './walletSlice';
 
 const store = configureStore({
   reducer: {
-    wallet: walletReducer
-  }
+    wallet: walletReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
