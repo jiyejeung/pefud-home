@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pefud-home/static/css/main.60d09de0.css",
-    "main.js": "/pefud-home/static/js/main.88eea069.js",
+    "main.js": "/pefud-home/static/js/main.25df81f0.js",
     "index.html": "/pefud-home/index.html",
     "main.60d09de0.css.map": "/pefud-home/static/css/main.60d09de0.css.map",
-    "main.88eea069.js.map": "/pefud-home/static/js/main.88eea069.js.map"
+    "main.25df81f0.js.map": "/pefud-home/static/js/main.25df81f0.js.map"
   },
   "entrypoints": [
     "static/css/main.60d09de0.css",
-    "static/js/main.88eea069.js"
+    "static/js/main.25df81f0.js"
   ]
 }
