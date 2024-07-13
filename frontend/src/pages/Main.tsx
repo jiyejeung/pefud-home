@@ -42,33 +42,33 @@ const Main = () => {
     <>
       <Container>
         <Section>
-          <div className='relative h-15rem w-100% d:bg-red l:bg-gray p:bg-yellow t:bg-green m:bg-blue'>
-            <h1 className='text-dark-gray w-100% flexRow absolute text-17rem l:text-15rem p:text-10rem top-[-3rem] l:top-[-4rem] p:top-[-2rem]'>PeFUD</h1>
-            <p className='w-100% flexRow absolute text-2.7rem l:text-2.3rem p:text-1.8rem top-18rem l:top-16rem p:top-11rem'>The first meme project on EON!</p>
+          <div className='relative h-15rem t:h-14rem w-100% d:bg-red l:bg-gray p:bg-yellow t:bg-green m:bg-blue'>
+            <h1 className='text-dark-gray w-100% flexRow absolute text-17rem l:text-15rem p:text-10rem t:text-10vw top-[-3rem] l:top-[-4rem] p:top-[-2rem] t:top-[3vw]'>PeFUD</h1>
+            <p className='w-100% flexRow absolute text-2.7rem l:text-2.3rem p:text-1.8rem t:text-1.4rem top-18rem l:top-16rem p:top-11rem t:top-8.5rem'>The first meme project on EON!</p>
           </div>
-          <div className='flexRow w-100%'>
-            <div className='cursor-pointer bg-cover bg-no-repeat bg-center w-40% pb-48% l:pb-40% p:pb-35% p:ml-5rem relative' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === false && countHover < 20 ? 'w-100% h-90%' : isOnHover === true && countHover < 20 ? 'w-100% h-60%' : 'animate-[smooth-show_1.2s] w-100% h-90%'}`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }}></div>
+          <div className='flexRow w-100% t:flexCol'>
+            <div className='cursor-pointer bg-cover bg-no-repeat bg-center w-40% t:w-80% pb-48% t:pb-90% l:pb-40% p:pb-35% t:pb-30% p:ml-5rem relative t:mr-3rem' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === false && countHover < 20 ? 'w-100% h-90%' : isOnHover === true && countHover < 20 ? 'w-100% h-60%' : ' animate-[smooth-show_1.2s] w-100% h-90%'}`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }}></div>
             </div>
-            <div className='flexCol w-60% relative mt-3rem l:mt-5rem p:mt-6rem p:mb-4rem'>
-              <div className='bg-contain bg-no-repeat bg-center w-30% h-15rem absolute top-[-10rem] ml-5rem' style={{ backgroundImage: 'url("/images/3.svg")', rotate: '0deg' }}></div>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem'>FUD has always been a constant</p>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem'>presence in the crypto world.</p>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem'>Now, anticipate the birth of a new</p>
-              <div className='flexRow'>
-                <p className='text-3.5rem l:text-2.8rem p:text-2rem pr-1rem l:pr-0.9rem p:pr-0.7rem'>FUD:</p>
-                <p className='text-3.5rem l:text-2.8rem p:text-2rem text-red'>PEFUD</p>
+            <div className='flexCol w-60% t:w-100% relative mt-3rem l:mt-5rem p:mt-6rem p:mb-4rem t:mb-4rem'>
+              <div className='bg-contain bg-no-repeat bg-center w-30% h-15rem absolute top-[-10rem] ml-5rem t:hidden' style={{ backgroundImage: 'url("/images/3.svg")', rotate: '0deg' }}></div>
+              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-2.3rem'>FUD has always been a constant</p>
+              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-2.3rem'>presence in the crypto world.</p>
+              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-2.3rem'>Now, anticipate the birth of a new</p>
+              <div className='flexRow t:mb-7rem'>
+                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-2.3rem pr-1rem l:pr-0.9rem p:pr-0.7rem t:pr-0.5rem'>FUD:</p>
+                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-2.3rem text-red'>PEFUD</p>
               </div>
-              <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem rotate-6'>
-                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem h-7rem l:h-6rem p:h-5rem flexRow text-4rem l:text-3rem p:text-2rem mr-5rem l:mr-4rem p:mr-3rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem'>Just Do meme</button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem h-7rem l:h-6rem p:h-5rem mr-1.5rem l:mr-1rem p:mr-0.6rem flexRow'>
-                  <i className='xi-twitter text-icon text-7rem l:text-6rem p:text-5rem'></i>
+              <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem t:mt-2rem t:mb-7rem rotate-6 t:rotate-0 t:w-100% t:relative'>
+                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-1.5rem h-7rem l:h-6rem p:h-5rem flexRow text-4rem l:text-3rem p:text-2rem t:text-3rem mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:m-0 t:top-0rem'>Just Do meme</button>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-3rem h-7rem l:h-6rem p:h-5rem t:h-7rem mr-1.5rem l:mr-1rem p:mr-0.6rem flexRow t:mt-10rem'>
+                  <i className='xi-twitter text-icon text-7rem l:text-6rem p:text-5rem t:text-7rem'></i>
                 </button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem h-7rem l:h-6rem p:h-5rem mr-1.5rem l:mr-1rem p:mr-0.5rem flexRow'>
-                  <i className='xi-telegram text-icon text-7rem l:text-6rem p:text-5rem'></i>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem h-7rem l:h-6rem p:h-5rem mr-1.5rem l:mr-1rem p:mr-0.5rem flexRow t:mt-10rem'>
+                  <i className='xi-telegram text-icon text-7rem l:text-6rem p:text-5rem t:text-7rem'></i>
                 </button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem h-7rem l:h-6rem p:h-5rem flexRow'>
-                  <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem'></i>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem h-7rem l:h-6rem p:h-5rem flexRow t:mt-10rem'>
+                  <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-7rem'></i>
                 </button>
               </div>
             </div>
