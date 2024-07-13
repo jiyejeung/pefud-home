@@ -11,10 +11,10 @@ export default {
     },
     screens: {
       m /* mobile */: { max: '480px' },
-      t /* tablet */: { min: '481px', max: '767px' },
-      p /* tablet-portrait mode */: { min: '768px', max: '1024px' },
-      l /* laptop */: { min: '1025px', max: '1280px' },
-      d /* desktop */: { min: '1280px' }
+      t /* tablet */: { min: '480.1px', max: '767px' },
+      p /* tablet-portrait mode */: { min: '767.1px', max: '1024px' },
+      l /* laptop */: { min: '1024.1px', max: '1280px' },
+      d /* desktop */: { min: '1281px' }
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -29,6 +29,7 @@ export default {
       black: 'black',
       white: '#e9e9e9',
       teal: 'teal',
+      icon: '#3f3f3f',
       cyan: 'cyan',
       indigo: 'indigo',
       violet: 'violet',
@@ -50266,6 +50267,13 @@ export default {
         230: '230',
         240: '240',
         250: '250',
+        300: '300',
+        400: '400',
+        500: '500',
+        600: '600',
+        700: '700',
+        800: '800',
+        900: '900',
         1000: '1000',
         1500: '1500',
         2000: '2000'
@@ -50278,8 +50286,12 @@ export default {
           '80%': { transform: 'translateY(7.4px)' },
           '90%': { transform: 'translateY(-7.4px)' }
         },
-        'shake-vertical-left': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(10px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-10px)' } },
-        'shake-vertical-right': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-10px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(10px)' } },
+        'shake-vertical-left-d': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(10px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-10px)' } },
+        'shake-vertical-right-d': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-10px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(10px)' } },
+        'shake-vertical-left-l': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(8px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-8px)' } },
+        'shake-vertical-right-l': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-8px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(8px)' } },
+        'shake-vertical-left-p': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(7px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-7px)' } },
+        'shake-vertical-right-p': { '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-7px)' }, '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(8px)' } },
         'shake-vertical-pefud': {
           '0%, 20%, 40%, 60%, 80%, 100%': { transform: 'translateY(-5px)' },
           '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-20px)' }
