@@ -10,8 +10,7 @@ export default {
       xl: '4px 4px 8px rgba(0, 0, 0, 0.5)'
     },
     screens: {
-      m /* mobile */: { max: '480px' },
-      t /* tablet */: { min: '480.1px', max: '767px' },
+      t /* tablet */: { max: '767px' },
       p /* tablet-portrait mode */: { min: '767.1px', max: '1024px' },
       l /* laptop */: { min: '1024.1px', max: '1280px' },
       d /* desktop */: { min: '1281px' }
