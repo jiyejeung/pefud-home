@@ -50333,6 +50333,9 @@ export default {
             animationTimingFunction: 'ease-out'
           }
         }
+      },
+      aspectRaio: {
+        '1/1': '1 / 1'
       }
     }
   },

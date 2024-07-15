@@ -19,6 +19,10 @@
   }
 }
 
+.bg-conic-gradient {
+  background: conic-gradient(#f2d142 0%, #f2d142 90%, #ed9d52 90%, #ed9d52 100%);
+}
+
 @layer components {
   .custom {
     color: #101010;

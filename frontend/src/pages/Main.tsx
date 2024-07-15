@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Container from '../layouts/Container';
 // import Footer from '../layouts/Footer';
 import Section from '../layouts/Section';
+import CircleChart from '../components/CircleChart';
 
 const Main = () => {
   // const slide = 'animate-[shake-vertical-pefud_1s]';
@@ -146,11 +147,37 @@ const Main = () => {
             </div>
           </div>
         </Section>
-        <Section>
-          <h2 className='text-dark-gray flexRow text-15rem l:text-12.5rem p:text-6.5rem t:text-12vw t:mt-10vw'>Tokenomics</h2>
+        <Section backgroundColor='#2e1e19'>
+          <h2 className='text-dark-gray flexRow text-12rem l:text-9.5rem p:text-6.5rem t:text-12vw t:mt-10vw'>Tokenomics</h2>
           <div className='w-100% flexRow'>
-            <div>graph box</div>
-            <div></div>
+            <div className='w-50% pb-50% bg-gray relative flexRow'>
+              <div className='w-100% h-100% absolute top-0 left-0 rounded-50% aspect-square bg-conic-gradient'></div>
+              <CircleChart />
+            </div>
+            <div className='w-50% h-100% flexCol justify-start'>
+              <div className='w-100% h-100% flexRow justify-start'>
+                <div className='flexRow justify-start text-white text-2.4rem pr-1.5rem'>Total Supply:</div>
+                <div className='text-orange text-2.4rem'>1,000,000,000,000</div>
+              </div>
+              <div className='w-100% h-100% flexRow justify-start mb-3rem'>
+                <div className='flexRow justify-start text-white text-2.4rem pr-1rem'>Token Address:</div>
+                <div className='text-orange text-2.4rem'>0x901n4k112983kln31lk2n313k223nl</div>
+              </div>
+              <div className='w-100% h-100% p-2rem flexCol bg-light-gray rounded rounded-2rem'>
+                <p className='text-white text-2rem'>Only 10% of the total tokens are allocated to the team.</p>
+                <p className='text-white text-2rem'>The rest of the allocation details must remain top secret.</p>
+                <p className='text-white text-2rem'>But one thing is certain:</p>
+                <p className='text-white text-2rem'>we are absolutely not a scam.</p>
+                <p className='text-white text-2rem'>We won't do any kind of rug pull.</p>
+                <p className='text-white text-2rem'>Please trust us.</p>
+              </div>
+              <p className='w-100% flexRow text-orange text-2.5rem mt-2.4rem'>We are not Scam</p>
+              <div className='relative w-100% flexRow pb-35% bg-gray'>
+                <div className='w-100% h-100% top-[0%] left-[0%] absolute' style={{ backgroundImage: 'url("/images/")' }}></div>
+                <div className='w-100% h-100% top-[0%] left-[0%] absolute' style={{ backgroundImage: 'url("/images/")' }}></div>
+                <div className='w-100% h-100% top-[0%] left-[0%] absolute' style={{ backgroundImage: 'url("/images/")' }}></div>
+              </div>
+            </div>
           </div>
         </Section>
         {/* <Footer /> */}
