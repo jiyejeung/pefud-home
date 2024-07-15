@@ -149,17 +149,17 @@ const Main = () => {
         </Section>
         <Section backgroundColor='#2e1e19'>
           <h2 className='text-dark-gray flexRow text-12rem l:text-9.5rem p:text-6.5rem t:text-12vw t:mt-10vw'>Tokenomics</h2>
-          <div className='w-100% flexRow'>
+          <div className='w-100% flexRow mt-5rem'>
             <div className='w-50% pb-50% bg-gray relative flexRow'>
               <div className='w-100% h-100% absolute top-0 left-0 rounded-50% aspect-square bg-conic-gradient'></div>
               <CircleShow />
-              <div className='absolute top-[-15%] left-[25%]'>
-                <div className='text-white text-3rem'>Team</div>
-                <div className='text-white text-3rem'>10%</div>
+              <div className='absolute top-[-12%] left-[25%]'>
+                <div className='text-white text-3.5rem'>Team</div>
+                <div className='text-white text-3.5rem'>10%</div>
               </div>
-              <div className='absolute top-[90%] left-[90%]'>
-                <div className='text-white text-3rem'>Top Secret</div>
-                <div className='text-white text-3rem'>90%</div>
+              <div className='absolute top-[90%] left-[80%]'>
+                <div className='text-white text-3.5rem'>Top Secret</div>
+                <div className='text-white text-3.5rem'>90%</div>
               </div>
             </div>
             <div className='w-50% h-100% flexCol justify-start'>
