@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Container from '../layouts/Container';
 // import Footer from '../layouts/Footer';
 import Section from '../layouts/Section';
-import CircleChart from '../components/CircleChart';
+import CircleShow from '../components/CircleShow';
 
 const Main = () => {
   // const slide = 'animate-[shake-vertical-pefud_1s]';
@@ -152,7 +152,15 @@ const Main = () => {
           <div className='w-100% flexRow'>
             <div className='w-50% pb-50% bg-gray relative flexRow'>
               <div className='w-100% h-100% absolute top-0 left-0 rounded-50% aspect-square bg-conic-gradient'></div>
-              <CircleChart />
+              <CircleShow />
+              <div className='absolute top-[-15%] left-[25%]'>
+                <div className='text-white text-3rem'>Team</div>
+                <div className='text-white text-3rem'>10%</div>
+              </div>
+              <div className='absolute top-[90%] left-[90%]'>
+                <div className='text-white text-3rem'>Top Secret</div>
+                <div className='text-white text-3rem'>90%</div>
+              </div>
             </div>
             <div className='w-50% h-100% flexCol justify-start'>
               <div className='w-100% h-100% flexRow justify-start'>
