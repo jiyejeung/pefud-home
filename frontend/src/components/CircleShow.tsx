@@ -21,7 +21,7 @@ const CircleShow: React.FC = () => {
     return `conic-gradient(transparent 0% ${progress}%, #2e1e19 ${progress}% 100%)`;
   };
 
-  return <div className='w-full h-full aspect-square rounded-full absolute top-0 left-0' style={{ background: getBackgroundStyle() }}></div>;
+  return <div className='w-85% h-85% aspect-square rounded-full absolute top-8.5% left-8.5%' style={{ background: getBackgroundStyle() }}></div>;
 };
 
 export default CircleShow;
