@@ -50297,6 +50297,10 @@ export default {
         },
         'smooth-show': { '0%': { transform: 'rotate(-1800deg)', opacity: 0 }, '100%': { transform: 'rotate(0)', opacity: 1 } },
 
+        'down-tears-d': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(25px)', opacity: 1 } },
+        'down-tears-l': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(17px)', opacity: 1 } },
+        'down-tears-p': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(14px)', opacity: 1 } },
+        'down-tears-t': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(10px)', opacity: 1 } },
         bounced: {
           '0%': {
             transform: 'translateY(-300px)',

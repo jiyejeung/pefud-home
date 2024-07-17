@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Container from '../layouts/Container';
 // import Footer from '../layouts/Footer';
 import Section from '../layouts/Section';
 import CircleShow from '../components/CircleShow';
+import { useFetcher } from 'react-router-dom';
 
 const Main = () => {
   // const slide = 'animate-[shake-vertical-pefud_1s]';
@@ -12,19 +13,97 @@ const Main = () => {
   const [countHover, setCountHover] = useState(0);
   const [isOnHover, setIsOnHover] = useState(false);
 
+  const whoIsPefudRef = useRef<HTMLTableSectionElement>(null);
+
+  const pefudHoverRef = useRef<HTMLDivElement>(null);
+
+  const pefudRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setTimeout(() => {
       setBounceHandler(true);
     }, 1300);
   }, []);
 
-  const handleMouseEnter = () => {
-    setCountHover((prev) => prev + 1);
-    setIsOnHover(true);
+  const handlePointerEnter = (event: React.PointerEvent) => {
+    if (event.pointerType === 'mouse') {
+      setCountHover((prev) => prev + 1);
+      setIsOnHover(true);
+    }
   };
 
-  const handleMouseLeave = () => {
-    setIsOnHover(false);
+  const handlePointerLeave = (event: React.PointerEvent) => {
+    if (event.pointerType === 'mouse') {
+      setIsOnHover(false);
+    }
+  };
+
+  useEffect(() => {
+    // if (countHover > 20 && pefudRef.current) {
+    //   pefudRef.current.style.animation = 'customAnimation 3s ease-in-out';
+    //   setTimeout(() => {
+    //     if (pefudRef.current) pefudRef.current.style.animation = '';
+    //   }, 3000);
+    // }
+    //  ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === false && countHover < 20 ? 'w-100% h-90%' : isOnHover === true && countHover < 20 ? 'w-100% h-60%' : ' animate-[smooth-show_1.2s] w-100% h-90%'}
+
+    /*
+    
+    */
+    const element = pefudRef.current;
+
+    console.log(element, bounceHandler);
+    if (element) {
+      if (bounceHandler) {
+        element.classList.add('animate-[shake-vertical-pefud_3s_ease-in-out_infinite]');
+        element.classList.remove('animate-[bounced_1s]');
+      } else {
+        element.classList.add('animate-[bounced_1s]');
+        element.classList.remove('animate-[shake-vertical-pefud_3s_ease-in-out_infinite]');
+      }
+      if (isOnHover === false && countHover < 20) {
+        // element.classList.add('w-100%');
+        element.classList.add('h-90%');
+        element.classList.remove('h-60%');
+        element.classList.remove('animate-[smooth-show_1.2s]');
+      } else if (isOnHover === true && countHover < 20) {
+        element.classList.add('h-60%');
+        element.classList.remove('h-90%');
+        element.classList.remove('animate-[smooth-show_1.2s]');
+      } else if (countHover > 20) {
+        console.log('hello');
+      }
+    }
+  }, [countHover, bounceHandler, isOnHover]);
+
+  useEffect(() => {
+    const element = pefudRef.current;
+
+    if (element) {
+      if (countHover === 20) {
+        element.classList.add('h-90%');
+        element.classList.remove('h-60%');
+        element.classList.remove('animate-[bounced_1s]');
+        element.classList.add('animate-[smooth-show_1.2s]');
+        setTimeout(() => {
+          if (element) {
+            element.classList.remove('animate-[smooth-show_1.2s]');
+            element.classList.add('animate-[shake-vertical-pefud_3s_ease-in-out_infinite]');
+          }
+        }, 1200);
+      }
+    }
+  }, [countHover]);
+
+  const handleTouchStart = () => {
+    setCountHover((prev) => prev + 1);
+    setIsOnHover((prev) => !prev);
+  };
+
+  const handleScrollToWhoIsPefud = () => {
+    if (whoIsPefudRef.current) {
+      whoIsPefudRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
   // const test = ' d:bg-red l:bg-orange p:bg-yellow t:bg-green m:bg-blue';
 
@@ -41,6 +120,7 @@ const Main = () => {
     l : { min: '1025px', max: '1280px' },
     d : { min: '1280px' },
   */
+
   return (
     <>
       <Container>
@@ -50,8 +130,8 @@ const Main = () => {
             <p className='w-100% flexRow absolute text-2.7rem l:text-2.3rem p:text-1.8rem t:text-2.5vw top-18rem l:top-16rem p:top-11rem t:top-15vw'>The first meme project on EON!</p>
           </div>
           <div className='flexRow w-100% t:flexCol'>
-            <div className='cursor-pointer bg-cover bg-no-repeat bg-center w-40% t:w-80% pb-48% t:pb-90% l:pb-40% p:pb-35% t:pb-30% p:ml-5rem relative t:mr-3rem' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% ${bounceHandler ? 'animate-[shake-vertical-pefud_3s_ease-in-out_infinite]' : 'animate-[bounced_1s]'} ${isOnHover === false && countHover < 20 ? 'w-100% h-90%' : isOnHover === true && countHover < 20 ? 'w-100% h-60%' : ' animate-[smooth-show_1.2s] w-100% h-90%'}`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }}></div>
+            <div className='cursor-pointer w-40% t:w-80% pb-48% t:pb-90% l:pb-40% p:pb-35% t:pb-30% p:ml-5rem relative' onPointerEnter={handlePointerEnter} onPointerLeave={handlePointerLeave} onTouchStart={handleTouchStart} ref={pefudHoverRef}>
+              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% w-100% t:left-1%`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }} ref={pefudRef}></div>
             </div>
             <div className='flexCol w-60% t:w-100% relative mt-3rem l:mt-5rem p:mt-6rem t:mt-4vw p:mb-4rem t:mb-4vw'>
               <div className='bg-contain bg-no-repeat bg-center w-30% h-15rem absolute top-[-10rem] ml-5rem t:hidden' style={{ backgroundImage: 'url("/images/3.svg")', rotate: '0deg' }}></div>
@@ -63,7 +143,9 @@ const Main = () => {
                 <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw text-red'>PEFUD</p>
               </div>
               <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem t:mt-2vw t:mb-8vw rotate-6 t:rotate-0 t:w-100% t:relative'>
-                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-3vw t:py-1.5vw h-7rem l:h-6rem p:h-5rem t:h-auto flexRow text-4rem l:text-3rem p:text-2rem t:text-6vw mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:top-[-3vw]'>Just Do meme</button>
+                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-3vw t:py-1.5vw h-7rem l:h-6rem p:h-5rem t:h-auto flexRow text-4rem l:text-3rem p:text-2rem t:text-6vw mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:top-[-3vw]' onClick={handleScrollToWhoIsPefud}>
+                  Just Do meme
+                </button>
                 <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw mr-1.5rem l:mr-1rem p:mr-0.6rem t:mr-1.2vw flexRow t:mt-20vw'>
                   <i className='xi-twitter text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i>
                 </button>
@@ -71,7 +153,8 @@ const Main = () => {
                   <i className='xi-telegram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i>
                 </button>
                 <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw flexRow t:mt-20vw'>
-                  <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i>
+                  {/* <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i> */}
+                  <div className='w-85% h-80% bg-center bg-contain bg-no-repeat mt-5% rotate-[4deg] t:rotate-[0deg]' style={{ backgroundImage: 'url("/images/28.svg")' }}></div>
                 </button>
               </div>
             </div>
@@ -88,39 +171,44 @@ const Main = () => {
           <div className='w-100% flexRow items-end t:relative'>
             <div className='w-20% l:w-17.5% p:w-17.5% bg-cover h-100% flexRow items-end pb-8rem t:hidden'>
               <div className='w-100% pb-150% l:pb-130% p:pb-120% bg-no-repeat bg-center bg-cover relative' style={{ backgroundImage: 'url("/images/2.svg")' }}>
+                <div className='w-22% pb-65% bottom-45% left-28% absolute bg-no-repeat bg-left bg-contain d:animate-[down-tears-d_1.2s_ease-in-out_infinite] l:animate-[down-tears-l_1.2s_ease-in-out_infinite] p:animate-[down-tears-p_1.2s_ease-in-out_infinite] t:animate-[down-tears-t_1.2s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/10.png")' }}></div>
+                <div className='w-30% pb-55% bottom-35% left-18% absolute bg-no-repeat bg-left bg-contain d:animate-[down-tears-d_1.2s_ease-in-out_infinite] l:animate-[down-tears-l_1.2s_ease-in-out_infinite] p:animate-[down-tears-p_1.2s_ease-in-out_infinite] t:animate-[down-tears-t_1.2s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/10.png")' }}></div>
+                <div className='w-24% pb-35% bottom-28% left-29% absolute bg-no-repeat bg-left bg-contain d:animate-[down-tears-d_1.2s_ease-in-out_infinite] l:animate-[down-tears-l_1.2s_ease-in-out_infinite] p:animate-[down-tears-p_1.2s_ease-in-out_infinite] t:animate-[down-tears-t_1.2s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/10.png")' }}></div>
                 <div className='w-30% pb-65% l:pb-55% p:pb-45% bg-no-repeat bg-right bg-cover absolute bottom-2rem left-25% animate-[shake-vertical-left-d_1s_ease-in-out_infinite] l:animate-[shake-vertical-left-l_1s_ease-in-out_infinite] p:animate-[shake-vertical-left-p_1s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/6.svg")' }}></div>
                 <div className='w-30% pb-65% l:pb-55% p:pb-45% bg-no-repeat bg-left bg-cover absolute bottom-2rem right-15% animate-[shake-vertical-right-d_1s_ease-in-out_infinite] l:animate-[shake-vertical-right-l_1s_ease-in-out_infinite] p:animate-[shake-vertical-right-p_1s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/7.svg")' }}></div>
               </div>
             </div>
-            <div className='w-60% l:w-65% p:w-65% t:w-100% h-63rem l:h-43rem p:h-34vw t:h-auto flexCol justify-between pt-7rem l:pt-5rem p:pt-4rem t:pt-10vw mb-3rem l:mb-2.5rem p:mb-3rem t:mb-10vw'>
+            <div className='w-60% l:w-65% p:w-65% t:w-100% h-63rem l:h-43rem p:h-34vw t:h-auto flexCol justify-between pt-7rem l:pt-5rem p:pt-4rem t:pt-6vw mb-3rem l:mb-2.5rem p:mb-3rem t:mb-10vw'>
               <div className='w-100% h-80% flexCol justify-start'>
-                <div className='w-100% flexRow t:flexCol pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7% t:pb-13.5% mr-3rem t:mr-0rem' style={{ backgroundImage: 'url("images/20.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-8% t:pb-16% mr-3rem t:mr-0rem t:mb-4vw' style={{ backgroundImage: 'url("images/21.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-6% t:pb-12% t:mb-4vw' style={{ backgroundImage: 'url("images/22.svg")' }}></div>
+                <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/20.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/21.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9%' style={{ backgroundImage: 'url("images/22.png")' }}></div>
                 </div>
-                <div className='w-100% flexRow t:flexCol pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-5% t:pb-10% mr-3rem t:mr-0rem t:mb-4vw' style={{ backgroundImage: 'url("images/23.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-11% t:pb-22% mr-3rem t:mr-0rem t:mb-4vw' style={{ backgroundImage: 'url("images/24.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7% t:pb-14% t:mb-4vw' style={{ backgroundImage: 'url("images/25.svg")' }}></div>
+                <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/23.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/24.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9%' style={{ backgroundImage: 'url("images/25.png")' }}></div>
                 </div>
-                <div className='w-100% flexRow t:flexCol pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-11% t:pb-22% mr-3rem t:mr-0rem t:mb-4vw' style={{ backgroundImage: 'url("images/26.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-6% t:pb-12% mr-3rem t:mr-0rem t:mb-4vw' style={{ backgroundImage: 'url("images/27.svg")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-9% t:pb-18% t:pb-10vw'></div>
+                <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/26.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/27.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% t:pb-10vw'></div>
                 </div>
               </div>
-              <div className='flexRow border border-white text-orange text-2.2rem l:text-1.8rem p:text-1.4rem t:text-2.6vw px-2rem p:px-1.5rem t:px-3vw py-0.3rem rounded rounded-0.2rem'>We will continue to add exchanges where we want to be listed.</div>
+              <div className='flexRow border border-white text-orange text-2.2rem l:text-1.8rem p:text-1.4rem t:text-2.6vw px-2rem p:px-1.5rem t:px-3vw t:mt-6vw py-0.3rem rounded rounded-0.2rem'>We will continue to add exchanges where we want to be listed.</div>
             </div>
             <div className='w-20% l:w-17.5% p:w-17.5% bg-cover h-100% flexRow items-end pb-8rem t:hidden'>
               <div className='w-100% pb-150% l:pb-130% p:pb-120% bg-no-repeat bg-center bg-cover relative' style={{ backgroundImage: 'url("/images/5.svg")', transform: 'scaleX(-1)' }}>
+                <div className='w-35% pb-65% bottom-40% left-19% absolute bg-no-repeat bg-left bg-contain d:animate-[down-tears-d_1.2s_ease-in-out_infinite] l:animate-[down-tears-l_1.2s_ease-in-out_infinite] p:animate-[down-tears-p_1.2s_ease-in-out_infinite] t:animate-[down-tears-t_1.2s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/10.png")' }}></div>
+                <div className='w-30% pb-55% bottom-28% left-10% absolute bg-no-repeat bg-left bg-contain d:animate-[down-tears-d_1.2s_ease-in-out_infinite] l:animate-[down-tears-l_1.2s_ease-in-out_infinite] p:animate-[down-tears-p_1.2s_ease-in-out_infinite] t:animate-[down-tears-t_1.2s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/10.png")' }}></div>
                 <div className='w-30% pb-65% l:pb-55% p:pb-45% bg-no-repeat bg-right bg-cover absolute bottom-2rem left-22% animate-[shake-vertical-left-d_1s_ease-in-out_infinite] l:animate-[shake-vertical-left-l_1s_ease-in-out_infinite] p:animate-[shake-vertical-left-p_1s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/17.svg")' }}></div>
                 <div className='w-30% pb-65% l:pb-55% p:pb-45% bg-no-repeat bg-left bg-cover absolute bottom-2rem right-18% animate-[shake-vertical-right-d_1s_ease-in-out_infinite] l:animate-[shake-vertical-right-l_1s_ease-in-out_infinite] p:animate-[shake-vertical-right-p_1s_ease-in-out_infinite]' style={{ backgroundImage: 'url("/images/18.svg")' }}></div>
               </div>
             </div>
           </div>
         </Section>
-        <Section>
+        <Section ref={whoIsPefudRef}>
           <div className='w-100% relative flexCol pt-7rem l:pt-6rem p:pt-3rem t:pt-15vw'>
             <h2 className='text-dark-gray flexRow text-15rem l:text-12.5rem p:text-6.5rem t:text-12vw z-100 leading-[6rem] l:leading-[4rem] p:leading-[2rem] t:leading-[1vw] l:mt-1rem p:mt-2rem t:mt-0vw'>Who is PeFud</h2>
             <div className='bg-cover bg-no-repeat bg-top w-55rem l:w-50rem p:w-35rem t:w-50vw h-8rem l:h-7rem t:h-8vw ml-52rem l:ml-42rem p:ml-23rem t:ml-39vw' style={{ backgroundImage: 'url("/images/19.svg")' }}></div>
@@ -131,7 +219,7 @@ const Main = () => {
               <div className='absolute text-3rem l:text-2.5rem p:text-2rem t:text-3.5vw text-brown top-9.5rem l:top-10.5rem p:top-8.5rem t:top-19vw left-30.4rem l:left-11.7rem p:left-11.4rem t:left-12.3vw z-300' style={{ rotate: '-14deg' }}>
                 Fear
               </div>
-              <div className='absolute bg-center bg-no-repeat bg-contain w-100rem l:w-85rem p:w-60rem t:w-90vw h-100rem l:h-85rem p:h-60rem t:h-90vw top-[-11rem] l:top-[-15rem] p:top-[-9rem] t:top-[-5vw] left-[-9rem] l:left-[-22rem] p:left-[-12rem] t:left-[-22vw] z-200' style={{ backgroundImage: 'url("/images/11.svg")' }}></div>
+              <div className='absolute bg-center bg-no-repeat bg-contain w-100rem l:w-85rem p:w-60rem t:w-90vw h-100rem l:h-85rem p:h-60rem t:h-90vw top-[-20rem] l:top-[-15rem] p:top-[-9rem] t:top-[-5vw] left-[-9rem] l:left-[-22rem] p:left-[-12rem] t:left-[-22vw] z-200' style={{ backgroundImage: 'url("/images/11.svg")' }}></div>
             </div>
             <div className='w-30% h-50rem l:h-100% p:h-100% t:h-100% relative'>
               <div className='absolute text-3rem l:text-2.5rem p:text-2rem t:text-3.5vw text-green top-9rem l:top-10rem p:top-10rem t:top-20.5vw left-14.5rem l:left-9rem p:left-6.7rem t:left-6vw' style={{ rotate: '4deg' }}>
@@ -147,7 +235,7 @@ const Main = () => {
             </div>
           </div>
         </Section>
-        <Section backgroundColor='#2e1e19'>
+        {/* <Section backgroundColor='#2e1e19'>
           <h2 className='text-orange flexRow text-12rem l:text-9.5rem p:text-6.5rem t:text-12vw mt-2rem t:mt-7vw'>Tokenomics</h2>
           <div className='w-100% flexRow mt-5rem l:mt-3rem p:mt-2rem t:mt-5vw t:flexCol'>
             <div className='w-50% pb-50% relative flexRow mb-10rem l:mb-8rem p:mb-5rem t:mb-12vw t:w-100% t:pb-100%'>
@@ -185,12 +273,10 @@ const Main = () => {
               <div className='relative w-100% flexRow pb-35% bg-gray mt-2rem t:mt-4vw t:mb-5vw'></div>
             </div>
           </div>
-        </Section>
+        </Section> */}
         <Section backgroundColor='#f1d141'>
-          <div className='w-100% h-100% flexRow t:flexCol'>
-            <div className='w-100% pb-25% bg-gray mr-2rem t:mr-0rem t:mb-2vw'></div>
-            <div className='w-100% pb-25% bg-gray mr-2rem t:mr-0rem t:mb-2vw'></div>
-            <div className='w-100% pb-25% bg-gray'></div>
+          <div className='w-100% h-100% flexRow'>
+            <div className='w-100% h-100% flexRow'></div>
           </div>
         </Section>
         <div className='w-100% bg-coral h-0.1rem'></div>

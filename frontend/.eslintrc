@@ -12,7 +12,8 @@
     "react/react-in-jsx-scope": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "import/resolver": {
