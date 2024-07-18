@@ -123,7 +123,7 @@ const Main = () => {
     window.open('https://www.coinbase.com', '_blank');
   };
   const handleClickGemini = () => {
-    window.open('', '_blank');
+    window.open('https://www.gemini.com', '_blank');
   };
   const handleClickKraken = () => {
     window.open('https://www.kraken.com', '_blank');
