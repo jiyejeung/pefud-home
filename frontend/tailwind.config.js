@@ -50301,6 +50301,7 @@ export default {
         'down-tears-l': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(17px)', opacity: 1 } },
         'down-tears-p': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(14px)', opacity: 1 } },
         'down-tears-t': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(10px)', opacity: 1 } },
+        slide: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-100%)' } },
         bounced: {
           '0%': {
             transform: 'translateY(-300px)',

@@ -11,6 +11,7 @@ const App = () => {
       document.documentElement.style.colorScheme = 'light';
     }
   }, []);
+
   return (
     <>
       <Provider store={store}>

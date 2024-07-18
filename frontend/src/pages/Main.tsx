@@ -4,6 +4,7 @@ import Container from '../layouts/Container';
 import Section from '../layouts/Section';
 import CircleShow from '../components/CircleShow';
 import { useFetcher } from 'react-router-dom';
+import Footer from '../layouts/Footer';
 
 const Main = () => {
   // const slide = 'animate-[shake-vertical-pefud_1s]';
@@ -105,6 +106,41 @@ const Main = () => {
       whoIsPefudRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const handleClickTwitter = () => {
+    window.open('https://twitter.com/pefuds', '_blank');
+  };
+  const handleClickTelegram = () => {
+    window.open('https://t.me/PeFu_d', '_blank');
+  };
+  const handleClickITree = () => {
+    window.open('https://linktr.ee/pefud', '_blank');
+  };
+  const handleClickBinance = () => {
+    window.open('https://www.binance.com', '_blank');
+  };
+  const handleClickCoinbase = () => {
+    window.open('https://www.coinbase.com', '_blank');
+  };
+  const handleClickGemini = () => {
+    window.open('', '_blank');
+  };
+  const handleClickKraken = () => {
+    window.open('https://www.kraken.com', '_blank');
+  };
+  const handleClickKucoin = () => {
+    window.open('https://www.kucoin.com', '_blank');
+  };
+  const handleClickCrypto = () => {
+    window.open('https://crypto.com', '_blank');
+  };
+  const handleClickBybit = () => {
+    window.open('https://www.bybit.com', '_blank');
+  };
+  const handleClickGateIO = () => {
+    window.open('https://www.gate.io', '_blank');
+  };
+
   // const test = ' d:bg-red l:bg-orange p:bg-yellow t:bg-green m:bg-blue';
 
   /*
@@ -112,8 +148,6 @@ const Main = () => {
   */
 
   /*
-    illustrate, dongju
-
     m : { max: '480px' },
     t : { min: '481px', max: '767px' },
     p : { min: '768px', max: '1024px' },
@@ -140,19 +174,20 @@ const Main = () => {
               <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw'>Now, anticipate the birth of a new</p>
               <div className='flexRow t:mb-10vw'>
                 <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw pr-1rem l:pr-0.9rem p:pr-0.7rem t:pr-0.5rem'>FUD:</p>
-                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw text-red'>PEFUD</p>
+                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw text-red'>PeFUD</p>
               </div>
               <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem t:mt-2vw t:mb-8vw rotate-6 t:rotate-0 t:w-100% t:relative'>
                 <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-3vw t:py-1.5vw h-7rem l:h-6rem p:h-5rem t:h-auto flexRow text-4rem l:text-3rem p:text-2rem t:text-6vw mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:top-[-3vw]' onClick={handleScrollToWhoIsPefud}>
                   Just Do meme
                 </button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw mr-1.5rem l:mr-1rem p:mr-0.6rem t:mr-1.2vw flexRow t:mt-20vw'>
-                  <i className='xi-twitter text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw mr-1.5rem l:mr-1rem p:mr-0.6rem t:mr-1.2vw flexRow t:mt-20vw' onClick={handleClickTwitter}>
+                  {/* <i className='xi-twitter text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i> */}
+                  <div className='w-75% h-70% bg-center bg-contain bg-no-repeat mt-5% rotate-[4deg] t:rotate-[0deg] mb-7%' style={{ backgroundImage: 'url("/images/twitter.png")' }}></div>
                 </button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw mr-1.5rem l:mr-1rem p:mr-0.5rem t:mr-1.2vw flexRow t:mt-20vw'>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw mr-1.5rem l:mr-1rem p:mr-0.5rem t:mr-1.2vw flexRow t:mt-20vw' onClick={handleClickTelegram}>
                   <i className='xi-telegram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i>
                 </button>
-                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw flexRow t:mt-20vw'>
+                <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-10vw h-7rem l:h-6rem p:h-5rem t:h-10vw flexRow t:mt-20vw' onClick={handleClickITree}>
                   {/* <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i> */}
                   <div className='w-85% h-80% bg-center bg-contain bg-no-repeat mt-5% rotate-[4deg] t:rotate-[0deg]' style={{ backgroundImage: 'url("/images/28.svg")' }}></div>
                 </button>
@@ -160,6 +195,140 @@ const Main = () => {
             </div>
           </div>
         </Section>
+        <div className='bg-white overflow-hidden whitespace-nowrap'>
+          <div className='whitespace-nowrap inline-block animate-[slide_15s_linear_infinite]'>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+          </div>
+          <div className='whitespace-nowrap inline-block animate-[slide_15s_linear_infinite]'>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+          </div>
+          <div className='whitespace-nowrap inline-block animate-[slide_15s_linear_infinite]'>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+            <div className='text-black text-3rem l:text-2.8rem p:text-2.5rem t:text-3vw px-1rem l:px-0.9rem p:px-0.6rem t:px-1vw inline'>PeFUD</div>
+          </div>
+        </div>
         <Section backgroundColor='#2e1e19'>
           <div className='flexRow relative t:mb-3vw'>
             <div className='w-20rem l:w-18rem p:w-10rem t:w-20vw h-10rem l:h-9rem p:h-5.5rem t:h-11vw bg-contain bg-no-repeat bg-center absolute left-[-18.5rem] l:left-[-16.5rem] p:left-[-10.5rem] t:left-[-21vw] t:top-[7.5vw]' style={{ backgroundImage: 'url("images/8.png")' }}></div>
@@ -181,18 +350,18 @@ const Main = () => {
             <div className='w-60% l:w-65% p:w-65% t:w-100% h-63rem l:h-43rem p:h-34vw t:h-auto flexCol justify-between pt-7rem l:pt-5rem p:pt-4rem t:pt-6vw mb-3rem l:mb-2.5rem p:mb-3rem t:mb-10vw'>
               <div className='w-100% h-80% flexCol justify-start'>
                 <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/20.png")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/21.png")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9%' style={{ backgroundImage: 'url("images/22.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/27.png")' }} onClick={handleClickBinance}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/20.png")' }} onClick={handleClickCoinbase}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% cursor-pointer' style={{ backgroundImage: 'url("images/21.png")' }} onClick={handleClickGemini}></div>
                 </div>
                 <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/23.png")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/24.png")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9%' style={{ backgroundImage: 'url("images/25.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/22.png")' }} onClick={handleClickKraken}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/23.png")' }} onClick={handleClickKucoin}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% cursor-pointer' style={{ backgroundImage: 'url("images/24.png")' }} onClick={handleClickCrypto}></div>
                 </div>
                 <div className='w-100% flexRow pb-2rem t:pb-0rem justify-start px-4rem l:px-3.5rem'>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/26.png")' }}></div>
-                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw' style={{ backgroundImage: 'url("images/27.png")' }}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/25.png")' }} onClick={handleClickBybit}></div>
+                  <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% mr-3rem t:mr-2vw cursor-pointer' style={{ backgroundImage: 'url("images/26.png")' }} onClick={handleClickGateIO}></div>
                   <div className='bg-cover bg-no-repeat bg-top w-33.3% t:w-66.6% pb-7.5% t:pb-9% t:pb-10vw'></div>
                 </div>
               </div>
@@ -210,7 +379,7 @@ const Main = () => {
         </Section>
         <Section ref={whoIsPefudRef}>
           <div className='w-100% relative flexCol pt-7rem l:pt-6rem p:pt-3rem t:pt-15vw'>
-            <h2 className='text-dark-gray flexRow text-15rem l:text-12.5rem p:text-6.5rem t:text-12vw z-100 leading-[6rem] l:leading-[4rem] p:leading-[2rem] t:leading-[1vw] l:mt-1rem p:mt-2rem t:mt-0vw'>Who is PeFud</h2>
+            <h2 className='text-dark-gray flexRow text-15rem l:text-12.5rem p:text-6.5rem t:text-12vw z-100 leading-[6rem] l:leading-[4rem] p:leading-[2rem] t:leading-[1vw] l:mt-1rem p:mt-2rem t:mt-0vw'>Who is PeFUD</h2>
             <div className='bg-cover bg-no-repeat bg-top w-55rem l:w-50rem p:w-35rem t:w-50vw h-8rem l:h-7rem t:h-8vw ml-52rem l:ml-42rem p:ml-23rem t:ml-39vw' style={{ backgroundImage: 'url("/images/19.svg")' }}></div>
           </div>
           <button className='text-white bg-cloud text-4rem l:text-3rem p:text-2rem t:text-4vw mt-13rem l:mt-8rem p:mt-3.5rem t:mt-9vw px-4rem l:px-3rem p:px-2rem t:px-3vw py-1rem l:py-0.8rem p:py-0.5rem t:py-1vw border-black border-0.3rem p:border-0.2rem t:border-0.1rem'>Coming Soon</button>
@@ -275,17 +444,56 @@ const Main = () => {
           </div>
         </Section> */}
         <Section backgroundColor='#f1d141'>
-          <div className='w-100% h-100% flexRow'>
-            <div className='w-100% h-100% flexRow'></div>
+          <div className='w-100% h-100% flexRow d:pt-2rem l:pt-1.5rem p:pt-1rem t:pt-10vw'>
+            <div className='w-100% h-100% flexCol'>
+              <h1 className='text-dark-gray w-100% flexRow text-10.5rem l:text-8rem p:text-5rem t:text-8vw mb-5.5rem l:mb-4.5rem p:mb-4rem t:mb-4vw'>PeFUD Changes My Life</h1>
+              <div className='w-100% pb-0.3% bg-black'></div>
+              <div className='w-100% h-auto bg-coral flexRow'>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-14.4% bg-black' style={{ backgroundImage: 'url("images/61.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>Before PeFUD</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-15.5% bg-black' style={{ backgroundImage: 'url("images/62.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>8h work</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-18.6% bg-black' style={{ backgroundImage: 'url("images/63.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>8h sleep</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-17% bg-black' style={{ backgroundImage: 'url("images/64.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>8h losing money</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-22.5% bg-black' style={{ backgroundImage: 'url("images/65.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>Meet PeFUD</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+                <div className='bg-left bg-cover bg-no-repeat relative pb-23.8% w-14.4%' style={{ backgroundImage: 'url("images/66.png")' }}>
+                  <div className='absolute bottom-[-7rem] l:bottom-[-6rem] p:bottom-[-5rem] t:bottom-[-5vw] text-1.9rem l:text-1.7rem p:text-1.2rem t:text-1.6vw w-100% flexRow'>After PeFUD</div>
+                </div>
+                <div className='w-0.3% pb-23.8% bg-dark-gray'></div>
+              </div>
+              <div className='w-100% pb-0.3% bg-black mb-14rem l:mb-13rem p:mb-9rem t:mb-10vw'></div>
+              <p className='flexRow text-black text-2.5rem l:text-1.8rem p:text-1.4rem t:text-1.9vw'>"Before I met PeFUD, I used to work for 8 hours, sleep for 8 hours, and lose money for 8 hours.</p>
+              <p className='flexRow text-black text-2.5rem l:text-1.8rem p:text-1.4rem t:text-1.9vw'>But after Meet PeFUD, My life changed. Are you ready for a change too?"</p>
+              <button className='text-white bg-cloud text-4rem l:text-3rem p:text-2rem t:text-4vw mt-13rem l:mt-8rem p:mt-5.5rem t:mt-9vw px-4rem l:px-3rem p:px-2rem t:px-3vw py-1rem l:py-0.8rem p:py-0.5rem t:py-1vw border-black border-0.3rem p:border-0.2rem t:border-0.1rem mb-20rem l:mb-10vw p:mb-10vw t:mb-10vw'>Coming Soon</button>
+            </div>
           </div>
         </Section>
-        <div className='w-100% bg-coral h-0.1rem'></div>
-        <Section>
+        {/* <Section>
           <div className='w-100% h-100% flexCol'>
             <h2 className='flexRow text-12rem l:text-9.5rem p:text-6.5rem t:text-11vw mt-2rem t:mt-6vw'>Coming Soon</h2>
             <div className='w-100% pb-65% bg-gray mt-5rem l:mt-4rem p:mt-3rem t:mt-6.5vw'></div>
           </div>
-        </Section>
+        </Section> */}
+        <Footer>
+          <div className='flexRow w-100%'>
+            <div className='w-13% pb-7% bg-contain bg-no-repeat bg-left mr-1%' style={{ backgroundImage: 'url("/images/logo-pefud.png")' }}></div>
+            <div className='text-1.6rem mb-2% l:text-1.5rem p:text-1.3rem t:text-1.3vw'>CopyRight(C) NEVERED. All rights reserved.</div>
+          </div>
+        </Footer>
       </Container>
     </>
   );
