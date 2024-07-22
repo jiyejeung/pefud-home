@@ -20,7 +20,7 @@ const App = () => {
         <Router>
           <Routes>
             <Route path='/' element={<Main />} />
-            <Route path='/game' element={<Game />} />
+            {/* <Route path='/game' element={<Game />} /> */}
           </Routes>
         </Router>
       </Provider>
