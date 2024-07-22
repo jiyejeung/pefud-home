@@ -62,16 +62,16 @@ const Main = () => {
         element.classList.add('animate-[bounced_1s]');
         element.classList.remove('animate-[shake-vertical-pefud_3s_ease-in-out_infinite]');
       }
-      if (isOnHover === false && countHover < 20) {
+      if (isOnHover === false && countHover < 5) {
         // element.classList.add('w-100%');
         element.classList.add('h-90%');
         element.classList.remove('h-60%');
         element.classList.remove('animate-[smooth-show_1.2s]');
-      } else if (isOnHover === true && countHover < 20) {
+      } else if (isOnHover === true && countHover < 5) {
         element.classList.add('h-60%');
         element.classList.remove('h-90%');
         element.classList.remove('animate-[smooth-show_1.2s]');
-      } else if (countHover > 20) {
+      } else if (countHover > 5) {
         console.log('hello');
       }
     }
@@ -81,7 +81,7 @@ const Main = () => {
     const element = pefudRef.current;
 
     if (element) {
-      if (countHover === 20) {
+      if (countHover === 5) {
         element.classList.add('h-90%');
         element.classList.remove('h-60%');
         element.classList.remove('animate-[bounced_1s]');
@@ -159,25 +159,26 @@ const Main = () => {
     <>
       <Container>
         <Section>
-          <div className='relative h-26rem l:h-23rem p:h-18rem t:h-24vw w-100%'>
-            <h1 className='text-dark-gray w-100% flexRow absolute text-17rem l:text-13rem p:text-10rem t:text-10vw top-[2rem] l:top-[1rem] p:top-[-2rem] t:top-[3vw]'>PeFUD</h1>
-            <p className='w-100% flexRow absolute text-2.7rem l:text-2.3rem p:text-1.8rem t:text-2.5vw top-22rem l:top-17rem p:top-11rem t:top-15vw'>The first meme project on EON!</p>
+          <div className='relative h-26rem l:h-23rem p:h-18rem t:h-34vw w-100%'>
+            {/* <h1 className='text-dark-gray w-100% flexRow absolute text-17rem l:text-13rem p:text-10rem t:text-10vw top-[2rem] l:top-[1rem] p:top-[-2rem] t:top-[3vw] font-stroke'>PeFUD</h1> */}
+            <div className='w-100% h-28rem l:h-25rem p:h-18rem t:h-30vw bg-center bg-no-repeat bg-contain absolute' style={{ backgroundImage: 'url("images/logo-center-02.png")' }}></div>
+            <p className='w-100% flexRow absolute text-2.7rem l:text-2.3rem p:text-1.8rem t:text-2.5vw top-24rem l:top-21rem p:top-16rem t:top-29vw'>The first meme project on EON!</p>
           </div>
           <div className='flexRow w-100% t:flexCol t:w-80% t:mt-2vw'>
             <div className='cursor-pointer w-40% t:w-80% pb-48% t:pb-90% l:pb-40% p:pb-35% t:pb-30% p:ml-5rem relative' onPointerEnter={handlePointerEnter} onPointerLeave={handlePointerLeave} onTouchStart={handleTouchStart} ref={pefudHoverRef}>
-              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% w-100% t:left-1%`} style={{ backgroundImage: `${isOnHover === false && countHover < 20 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 20 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }} ref={pefudRef}></div>
+              <div className={`bg-cover bg-center bg-no-repeat absolute bottom-5% left-5% w-100% t:left-1%`} style={{ backgroundImage: `${isOnHover === false && countHover < 5 ? 'url("/images/2.svg")' : isOnHover === true && countHover < 5 ? 'url("/images/4.svg")' : 'url("/images/5.svg")'}` }} ref={pefudRef}></div>
             </div>
-            <div className='flexCol w-60% t:w-100% relative mt-3rem l:mt-5rem p:mt-6rem t:mt-4vw p:mb-4rem t:mb-4vw'>
+            <div className='flexCol w-50% t:w-100% relative mt-3rem l:mt-5rem p:mt-6rem t:mt-4vw p:mb-4rem t:mb-4vw'>
               <div className='bg-contain bg-no-repeat bg-center w-30% h-15rem absolute top-[-10rem] ml-5rem t:hidden' style={{ backgroundImage: 'url("/images/3.svg")', rotate: '0deg' }}></div>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw'>FUD has always been a constant</p>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw'>presence in the crypto world.</p>
-              <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw'>Now, anticipate the birth of a new</p>
+              <p className='text-2.7rem l:text-2.4rem p:text-2rem t:text-4vw'>FUD has always been a constant</p>
+              <p className='text-2.7rem l:text-2.4rem p:text-2rem t:text-4vw'>presence in the crypto world.</p>
+              <p className='text-2.7rem l:text-2.4rem p:text-2rem t:text-4vw'>Now, anticipate the birth of a new</p>
               <div className='flexRow t:mb-10vw'>
-                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw pr-1rem l:pr-0.9rem p:pr-0.7rem t:pr-0.5rem'>FUD:</p>
-                <p className='text-3.5rem l:text-2.8rem p:text-2rem t:text-4vw text-red'>PeFUD</p>
+                <p className='text-2.7rem l:text-2.4rem p:text-2rem t:text-4vw pr-1rem l:pr-0.9rem p:pr-0.7rem t:pr-0.5rem'>FUD:</p>
+                <p className='text-2.7rem l:text-2.4rem p:text-2rem t:text-4vw text-red'>PeFUD</p>
               </div>
-              <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem t:mt-2vw t:mb-8vw rotate-6 t:rotate-0 t:w-100% t:relative'>
-                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-3vw t:py-1.5vw h-7rem l:h-6rem p:h-5rem t:h-auto flexRow text-4rem l:text-3rem p:text-2rem t:text-5vw mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:top-[-3vw]' onClick={handleScrollToWhoIsPefud}>
+              <div className='flexRow mt-3rem l:mt-2.8rem p:mt-2.3rem t:mt-2vw t:mb-8vw rotate-6 t:rotate-0 t:w-100% t:relative pt-[3rem] l:pt-[2rem] p:pt-[1.5rem] t:pt-[4vw]'>
+                <button className='cursor-pointer border px-4rem l:px-3.5rem p:px-2rem t:px-3vw t:py-1.5vw h-7rem l:h-6rem p:h-5rem t:h-auto flexRow text-3rem l:text-2.3rem p:text-1.8rem t:text-5vw mr-5rem l:mr-4rem p:mr-3rem t:mr-0rem bg-cloud text-white border-black border-0.3rem p:border-0.2rem t:border-0.2rem t:absolute t:top-[-3vw]' onClick={handleScrollToWhoIsPefud}>
                   Just Do meme
                 </button>
                 <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-8vw h-7rem l:h-6rem p:h-5rem t:h-8vw mr-1.5rem l:mr-1rem p:mr-0.6rem t:mr-1.2vw flexRow t:mt-20vw' onClick={handleClickTwitter}>
@@ -188,7 +189,7 @@ const Main = () => {
                   <i className='xi-telegram text-icon text-7rem l:text-6rem p:text-5rem t:text-8vw'></i>
                 </button>
                 <button className='cursor-pointer bg-cover bg-no-repeat bg-center w-7rem l:w-6rem p:w-5rem t:w-8vw h-7rem l:h-6rem p:h-5rem t:h-8vw flexRow t:mt-20vw' onClick={handleClickITree}>
-                  {/* <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i> */}
+                  {/* <i className='xi-instagram text-icon text-7rem l:text-6rem p:text-5rem t:text-10vw'></i> c*/}
                   <div className='w-85% h-80% bg-center bg-contain bg-no-repeat mt-5% rotate-[4deg] t:rotate-[0deg]' style={{ backgroundImage: 'url("/images/28.svg")' }}></div>
                 </button>
               </div>
