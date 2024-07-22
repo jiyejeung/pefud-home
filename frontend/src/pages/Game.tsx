@@ -97,7 +97,7 @@ const Main = () => {
             <div className='text-[#636b76] flexRow h-100% px-1.5rem l:px-0rem l:pr-1.3rem p:px-0rem p:pr-1.2rem font-[600] text-[1.5rem] l:text-[1.1rem] p:text-[0.8rem] font-roboto cursor-pointer'>1W</div>
             <div className='text-[#636b76] flexRow h-100% px-1.5rem l:px-0rem l:pr-1.3rem p:px-0rem p:pr-1.2rem font-[600] text-[1.5rem] l:text-[1.1rem] p:text-[0.8rem] font-roboto cursor-pointer'>5m</div>
           </div>
-          <div className='w-100% h-75% bg-[#161a1e] overflow-hidden relative flexRow justify-start p-1.5rem l:px-[1rem] p:px-[1rem] border border-0.1rem border-r-[#636b76] border-b-[#636b76] pt-3rem p:pt-5rem'>
+          <div className='w-100% h-55% bg-[#161a1e] overflow-hidden relative flexRow justify-start p-1.5rem l:px-[1rem] p:px-[1rem] border border-0.1rem border-r-[#636b76] border-b-[#636b76] pt-3rem p:pt-5rem'>
             <div className='absolute top-[0rem] left-[0rem] w-100% h-100% flexRow justify-start pl-3.5rem l:pl-[3.2rem] p:pl-[2rem]'>
               <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
               <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
@@ -106,7 +106,6 @@ const Main = () => {
               <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
               <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.4rem] p:mr-[9.5rem]'></div>
               <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.4rem] l:hidden p:hidden'></div>
-              {/* <div className='w-0.1rem h-100% bg-[#636b76] mr-[20.3rem]'></div> */}
               <div className='w-0.1rem h-100% bg-[#636b76]'></div>
             </div>
             <div className='w-1.2rem l:w-[0.65rem] p:w-[0.55rem] pb-4% bg-green mr-0.3rem p:mr-[0.25rem] relative'>
@@ -237,6 +236,19 @@ const Main = () => {
             <div className='absolute bottom-[35%] p:bottom-[25%] left-0 w-100% h-[0.1rem] bg-red'></div>
             <div className='absolute bottom-[35%] p:bottom-[25%] right-[2%] text-red text-3rem l:text-[1.8rem] p:text-[1.3rem] font-[800] font-roboto'>RED LINE</div>
             <button className='absolute bottom-[20%] l:bottom-[10%] p:bottom-[5%] left-[50%] translate-x-[-50%] px-3.5rem l:px-[2.5rem] p:px-[1.5rem] pt-0.2rem rounded-0.7rem l:rounded-0.4rem p:rounded-0.2rem text-4rem l:text-[2.2rem] p:text-[1.6rem] border cursor-pointer font-roboto font-[800] text-white'>BUY</button>
+          </div>
+          <div className='w-100% h-20% bg-[#161a1e] border border-0.1rem border-r-[#636b76] items-end border-b-[#636b76] flexRow relative justify-start px-1.5rem l:px-1.5rem p:px-11rem'>
+            <div className='absolute top-[0rem] left-[0rem] w-100% h-100% flexRow justify-start pl-3.5rem l:pl-[3.2rem] p:pl-[2rem]'>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.3rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.4rem] p:mr-[9.5rem]'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76] mr-[14.91rem] l:mr-[11.4rem] l:hidden p:hidden'></div>
+              <div className='w-0.1rem h-100% bg-[#636b76]'></div>
+            </div>
+            <div className='w-1.2rem l:w-[0.65rem] p:w-[0.55rem] h-10% bg-green mr-0.3rem p:mr-[0.25rem] relative'></div>
           </div>
           <div className='w-100% h-5% bg-[#161a1e] border border-0.1rem border-r-[#636b76] border-b-[#636b76] relative flexRow justify-start px-1.5rem l:px-1.5rem p:px-1rem'>
             <div className='w-[1.25rem] l:w-[0.95rem] p:w-[0.8rem] relative'></div>

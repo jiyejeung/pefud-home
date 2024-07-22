@@ -378,7 +378,7 @@ const Main = () => {
             </div>
           </div>
         </Section>
-        <Section ref={whoIsPefudRef}>
+        <Section ref={whoIsPefudRef} pb={false}>
           <div className='w-100% relative flexCol pt-7rem l:pt-6rem p:pt-3rem t:pt-15vw'>
             <h2 className='text-dark-gray flexRow text-15rem l:text-12.5rem p:text-6.5rem t:text-12vw z-100 leading-[6rem] l:leading-[4rem] p:leading-[2rem] t:leading-[1vw] l:mt-1rem p:mt-2rem t:mt-0vw'>Who is PeFUD</h2>
             <div className='bg-cover bg-no-repeat bg-top w-55rem l:w-50rem p:w-35rem t:w-50vw h-8rem l:h-7rem t:h-8vw ml-52rem l:ml-42rem p:ml-23rem t:ml-39vw' style={{ backgroundImage: 'url("/images/19.svg")' }}></div>

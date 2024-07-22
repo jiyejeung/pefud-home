@@ -3,14 +3,14 @@ import { forwardRef, ReactNode } from 'react';
 type PropsType = {
   children: ReactNode;
   backgroundColor?: string;
-  // ref?: React.RefObject<HTMLElement>;
+  pb?: boolean;
 };
 
 const Section = forwardRef<HTMLElement, PropsType>((props, ref) => {
-  const { children, backgroundColor = '' } = props;
+  const { children, backgroundColor = '', pb = true } = props;
   return (
     <>
-      <section className='w-100% flexRow px-4rem l:px-3rem p:px-2rem t:px-1rem m:px-2vw py-2rem l:py-1.5rem p:py-1rem t:py-0.5rem m:py-1vw' style={{ backgroundColor }} ref={ref}>
+      <section className={`w-100% flexRow px-4rem l:px-3rem p:px-2rem t:px-1rem m:px-2vw pt-2rem l:pt-1.5rem p:pt-1rem t:pt-0.5rem m:pt-1vw ${pb ? 'pb-2rem l:pb-1.5rem p:pb-1rem t:pb-0.5rem' : 'border-b-[0.3rem] border-[#101010]'}`} style={{ backgroundColor }} ref={ref}>
         <article className='max-w-145rem w-100% flexCol relative'>{children}</article>
       </section>
     </>
