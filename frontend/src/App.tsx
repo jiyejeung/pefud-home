@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
 import { useEffect } from 'react';
 import Game from './pages/Game';
+import History from './pages/History';
+import Donation from './pages/Donation';
 
 const App = () => {
   useEffect(() => {
@@ -20,7 +22,9 @@ const App = () => {
         <Router>
           <Routes>
             <Route path='/' element={<Main />} />
-            {/* <Route path='/game' element={<Game />} /> */}
+            <Route path='/game' element={<Game />} />
+            <Route path='/donation' element={<Donation />} />
+            <Route path='/history' element={<History />} />
           </Routes>
         </Router>
       </Provider>
