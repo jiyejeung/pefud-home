@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Game from './pages/Game';
 import History from './pages/History';
 import Donation from './pages/Donation';
+import Mint from './pages/Mint';
 
 const App = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/' element={<Main />} />
             <Route path='/game' element={<Game />} />
             <Route path='/donation' element={<Donation />} />
+            <Route path='/mint' element={<Mint />} />
             <Route path='/history' element={<History />} />
           </Routes>
         </Router>
