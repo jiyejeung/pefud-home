@@ -9,6 +9,8 @@
     @apply box-border;
     @apply outline-1;
     @apply custom;
+    padding: 0;
+    margin: 0;
   }
   *::-webkit-scrollbar {
     display: none;
@@ -17,6 +19,21 @@
     scrollbar-width: none;
     font-family: 'Carter One', system-ui;
   }
+}
+
+@font-face {
+  font-family: 'Impact';
+  src: url('/public/fonts/Impact.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-impact {
+  font-family: 'Impact', sans-serif;
+}
+
+.font-archivo {
+  font-family: 'Archivo Black', sans-serif;
 }
 
 @keyframes customAnimation {
@@ -39,9 +56,12 @@
 .font-stroke {
   -webkit-text-stroke: 8px #fafafa;
 }
-.font-roboto {
-  font-family: 'Roboto', sans-serif;
+/* .font-gothic {
+  font-family: 'Gothic A1', sans-serif;
 }
+.font-oswald {
+  font-family: 'Oswald', sans-serif;
+} */
 .bg-conic-gradient {
   background: conic-gradient(#f2d142 0%, #f2d142 90%, #ed9d52 90%, #ed9d52 100%);
 }
@@ -59,6 +79,10 @@
   }
   .box-shadow-button {
     box-shadow: rgba(0, 0, 0, 0.45) 9px 8px 17px;
+  }
+
+  .box-shadow-y {
+    box-shadow: 0rem 0rem 5rem 2rem rgba(0, 0, 0, 1);
   }
 
   .flexRow {
@@ -82,6 +106,9 @@
   }
   .op-100 {
     background-color: rgba(0, 0, 0, 0.4);
+  }
+  .light-red {
+    box-shadow: 0rem 0rem 0.8rem 0.2rem rgba(236, 59, 35, 0.9);
   }
   .box-shadow-s {
     box-shadow: 0rem 0rem 2rem 0.2rem rgba(0, 0, 0, 0.05);

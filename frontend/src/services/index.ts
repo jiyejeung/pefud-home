@@ -21,6 +21,11 @@ export const requestPermissionAddresses = async (): Promise<RequestPermissionsRe
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
     const address = await signer.getAddress();
+
+    const message = 'Welcome to our platform! Please sign this message to connect your wallet.';
+
+    await signer.signMessage(message);
+
     const chainId = parseInt((await signer.provider.getNetwork()).chainId.toString());
 
     return { permissionAddresses: permissions[0].caveats[0].value ?? [], walletAddress: address ?? '', chainId };
@@ -30,4 +35,10 @@ export const requestPermissionAddresses = async (): Promise<RequestPermissionsRe
 
     return { permissionAddresses: [], walletAddress: '', chainId: -1 };
   }
+};
+
+export const requestBonePoints = async (walletAddress: string) => {
+  console.log(walletAddress);
+
+  return { bonePoints: 0 };
 };
