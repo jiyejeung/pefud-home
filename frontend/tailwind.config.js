@@ -50,7 +50,12 @@ export default {
       'dark-gray': '#101010'
     },
     fontFamily: {
-      sans: ['Noto Sans KR', 'sans-serif']
+      sans: ['Noto Sans KR', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif'],
+      gothic: ['Gothic A1', 'sans-serif'],
+      oswald: ['Oswald', 'sans-serif'],
+      archivo: ['Archivo Black', 'sans-serif'],
+      impact: ['Impact', 'sans-serif']
     },
     borderRadius: {
       '0rem': '0rem',
@@ -50278,6 +50283,10 @@ export default {
         2000: '2000'
       },
       keyframes: {
+        light: {
+          '0%': { boxShadow: '0rem 0rem 0.5rem 0.2rem rgba(236, 59, 35, 0.9)' },
+          '100%': { boxShadow: '0rem 0rem 0.9rem 0.4rem rgba(236, 59, 35, 0.9)' }
+        },
         'shake-vertical-pray': {
           '0%, 100%': { transform: 'translateY(0)' },
           '10%, 30%, 50%, 70%': { transform: 'translateY(-8px)' },
@@ -50296,12 +50305,14 @@ export default {
           '10%, 30%, 50%, 70%, 90%': { transform: 'translateY(-20px)' }
         },
         'smooth-show': { '0%': { transform: 'rotate(-1800deg)', opacity: 0 }, '100%': { transform: 'rotate(0)', opacity: 1 } },
-
+        'toggle-text-yellow': { '0%, 100%': { color: '#ec3b23' }, '50%': { color: '#f2d142' } },
         'down-tears-d': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(25px)', opacity: 1 } },
         'down-tears-l': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(17px)', opacity: 1 } },
         'down-tears-p': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(14px)', opacity: 1 } },
         'down-tears-t': { '0%': { transform: 'translateY(0px)', opacity: 0.5 }, '100%': { transform: 'translateY(10px)', opacity: 1 } },
         slide: { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-100%)' } },
+        'bounce-ball': { '0%, 100%': { transform: 'translateX(-50%) translateY(0px)' }, '50%': { transform: 'translateX(-50%) translateY(-70px)' } },
+        'bounce-shadow': { '0%, 100%': { transform: 'translateX(-50%) scale(1)' }, '50%': { transform: 'translateX(-50%) scale(0.9)' } },
         bounced: {
           '0%': {
             transform: 'translateY(-300px)',

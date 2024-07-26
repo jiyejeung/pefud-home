@@ -25,9 +25,6 @@ const Main = () => {
 
   return (
     <>
-      <Header>
-        <div></div>
-      </Header>
       <Section backgroundColor='#161a1e'>
         <div className='bg-[#161a1e] w-[110rem] l:w-[80rem] p:w-[70rem] h-65rem l:h-[55rem] p:h-[40rem] relative border border-0.1rem border-t-[#636b76] border-l-[#636b76] border-r-[#636b76]'>
           <div className='w-100% h-10% flexRow justify-between border border-0.1rem border-b-[#636b76]'>
