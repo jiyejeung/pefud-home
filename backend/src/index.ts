@@ -1,6 +1,8 @@
 import express, { Express } from 'express';
 import { donation_route } from './routes/donation_route';
 
+import './database/db';
+
 const app: Express = express();
 
 const portNumber = process.env.PORT_NUMBER || 3000;
