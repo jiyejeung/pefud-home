@@ -2,17 +2,19 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { User } from '../entities/user_entity';
 
-const AppDataSource: DataSource = new DataSource({
+const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'pefud-db.cbageeomstmnc.ap-northeast-1.rds.amazonaws.com',
   port: 5432,
-  username: 'root',
-  password: 'root',
-  database: 'pefud',
+  username: 'pefud',
+  password: 'ghfkdlwps!',
+  database: 'pefud_db',
   entities: [User],
   synchronize: true,
   logging: false
 });
+
+export default AppDataSource;
 
 AppDataSource.initialize()
   .then(() => {
