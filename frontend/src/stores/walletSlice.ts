@@ -4,12 +4,14 @@ interface WalletState {
   chainId: number;
   walletAddress: string;
   permissionAddresses: string[];
+  bonePoints: string;
 }
 
 const initialState: WalletState = {
   chainId: -1,
   walletAddress: '',
-  permissionAddresses: []
+  permissionAddresses: [],
+  bonePoints: '0'
 };
 
 const walletSlice = createSlice({
@@ -24,9 +26,12 @@ const walletSlice = createSlice({
     },
     setPermissionAddresses(state, action) {
       state.permissionAddresses = action.payload;
+    },
+    setBonePoints(state, action) {
+      state.bonePoints = action.payload;
     }
   }
 });
 
-export const { setChainId, setWalletAddress, setPermissionAddresses } = walletSlice.actions;
+export const { setChainId, setWalletAddress, setPermissionAddresses, setBonePoints } = walletSlice.actions;
 export default walletSlice.reducer;
