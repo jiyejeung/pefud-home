@@ -1,25 +1,22 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { User } from '../entities/user_entity';
+import * as fs from 'fs';
 
-const AppDataSource = new DataSource({
+const certPath = '/Users/jiyejeung/Development/ap-northeast-1-bundle.pem';
+
+export const AppDataSource: DataSource = new DataSource({
   type: 'postgres',
-  host: 'pefud-db.cbageeomstmnc.ap-northeast-1.rds.amazonaws.com',
+  host: 'pefud-db.cbageeomstmc.ap-northeast-1.rds.amazonaws.com',
   port: 5432,
   username: 'pefud',
   password: 'ghfkdlwps!',
   database: 'pefud_db',
   entities: [User],
   synchronize: true,
-  logging: false
+  logging: false,
+  ssl: {
+    rejectUnauthorized: true,
+    ca: fs.readFileSync(certPath).toString()
+  }
 });
-
-export default AppDataSource;
-
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Data Source has been initialized!');
-  })
-  .catch((err) => {
-    console.error('Error during Data Source initialization:', err);
-  });

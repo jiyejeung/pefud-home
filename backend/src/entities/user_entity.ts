@@ -11,7 +11,7 @@ export class User extends BaseEntity {
   @Column({ nullable: false, default: 0 })
   playingTime!: number;
 
-  @Column({ nullable: true, default: '0' })
+  @Column({ nullable: false, default: '0' })
   bonesAmount!: string;
 
   @Column({ nullable: false, default: '0' })
