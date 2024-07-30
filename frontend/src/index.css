@@ -18,6 +18,7 @@
   * {
     scrollbar-width: none;
     font-family: 'Carter One', system-ui;
+    box-sizing: 'box-border';
   }
 }
 
@@ -129,6 +130,9 @@
     transform: scale(4);
     opacity: 0;
   }
+}
+.perspective-1 {
+  perspective: '10px';
 }
 
 .ripple {

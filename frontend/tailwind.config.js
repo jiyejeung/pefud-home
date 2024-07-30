@@ -26,7 +26,7 @@ export default {
     colors: {
       transparent: 'transparent',
       black: 'black',
-      white: '#e9e9e9',
+      white: '#fff',
       teal: 'teal',
       icon: '#3f3f3f',
       cyan: 'cyan',
@@ -43009,6 +43009,9 @@ export default {
     },
     extend: {
       backgroundImage: {},
+      backgroundColor: {
+        'custom-white': 'rgba(255, 255, 255, 0.2)'
+      },
       blur: {
         '2xs': '1px',
         xs: '2px',

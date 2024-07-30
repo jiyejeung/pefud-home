@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Container from '../layouts/Container';
 import Section from '../layouts/Section';
+import { ethers, toBeHex } from 'ethers';
+import { createRippleEffect } from '../utils/createRippleEffect';
+import axios from 'axios';
 
 type TimeLeft = {
   days?: number;
@@ -9,29 +12,29 @@ type TimeLeft = {
   seconds?: number;
 };
 
+const calculateTimeLeft = (): TimeLeft => {
+  const difference = +new Date('2024-07-31T00:00:00') - +new Date();
+  let timeLeft: TimeLeft = {};
+
+  if (difference > 0) {
+    timeLeft = {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60)
+    };
+  }
+
+  return timeLeft;
+};
+
 const Mint = () => {
-  // 목표 날짜와 시간 - 현재 날짜와 시간 계산으로 남은 시간을 밀리초 단위로 구한다.
-  const calculateTimeLeft = (): TimeLeft => {
-    const difference = +new Date('2024-07-31T00:00:00') - +new Date();
-    let timeLeft: TimeLeft = {};
-
-    // difference > 0 목표 날짜가 현재보다 미래에 있다는 뜻 남은 시간이 있을 경우
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
-      };
-    }
-
-    // 계산된 남은 시간을 반환
-    return timeLeft;
-  };
-
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
   const [quantity, setQuantity] = useState<number>(1);
   const [mintAmount, _setMintAmount] = useState(130);
+  const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
+  const [isConnected, setIsConnected] = useState<boolean>(false);
+  const [address, setAddress] = useState<string>('');
   const totalAbleMintingAmount = 5000;
 
   useEffect(() => {
@@ -56,46 +59,81 @@ const Mint = () => {
     }
   };
 
-  const handleClickMint = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const button = event.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const ripple = document.createElement('span');
-
-    const size = Math.max(button.clientWidth, button.clientHeight);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    ripple.className = 'ripple';
-
-    button.appendChild(ripple);
-
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
+  const handleClickMint = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    createRippleEffect(event);
   };
 
-  const handleClickConnect = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const button = event.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const ripple = document.createElement('span');
+  const handleClickConnect = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    createRippleEffect(event);
 
-    const size = Math.max(button.clientWidth, button.clientHeight);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
+    if (window.ethereum) {
+      try {
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        setProvider(provider);
+        const signer = await provider.getSigner();
+        const walletAddress = await signer.getAddress();
+        setAddress(walletAddress);
 
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    ripple.className = 'ripple';
+        const response = await axios.post('http://localhost:3000/api/auth/request-message', { walletAddress });
+        const { message, nonce } = response.data;
+        const signature = await signer.signMessage(message);
 
-    button.appendChild(ripple);
+        console.log(signature);
 
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
+        const loginResponse = await axios.post('http://localhost:3000/api/auth/login', { walletAddress, signature, nonce });
+        const { token } = loginResponse.data;
+        localStorage.setItem('token', token);
+
+        const chainId = parseInt((await signer.provider.getNetwork()).chainId.toString());
+
+        const eonChainId = 7332 || 1663;
+
+        if (chainId !== eonChainId) {
+          try {
+            await window.ethereum.request({
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: toBeHex(eonChainId) }]
+            });
+          } catch (switchError: any) {
+            if (switchError.code === 4902) {
+              console.error('This network is not available in your MetaMask, please add it manually');
+            } else {
+              console.error(switchError);
+            }
+          }
+        }
+
+        const account = await provider.send('eth_requestAccounts', []);
+        setIsConnected(true);
+        console.log(walletAddress, 'add');
+        console.log(chainId, 'id');
+        console.log(account, 'acc');
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  const handleClickDisconnect = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    createRippleEffect(event);
+
+    if (window.ethereum) {
+      try {
+        const result = await window.ethereum.request({
+          method: 'wallet_revokePermissions',
+          params: [
+            {
+              eth_accounts: {}
+            }
+          ]
+        });
+        setProvider(null);
+        setIsConnected(false);
+        console.log('Permissions revoked', result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
 
   return (
@@ -104,9 +142,15 @@ const Mint = () => {
         <Section>
           <div className='flex flex-col justify-center items-center w-full h-screen bg-orange-500 px-[8rem]'>
             <div className='flex justify-end w-100% py-3rem'>
-              <button className='text-white text-2rem px-8 py-2 bg-[#2e1e19] rounded-[4rem] relative overflow-hidden box-shadow-button' onClick={handleClickConnect}>
-                Connect Wallet
-              </button>
+              {!isConnected ? (
+                <button className='text-white text-2rem px-8 py-2 bg-[#2e1e19] rounded-[4rem] relative overflow-hidden box-shadow-button' onClick={handleClickConnect}>
+                  Connect Wallet
+                </button>
+              ) : (
+                <button className='text-white text-2rem px-8 py-2 bg-[#2e1e19] rounded-[4rem] relative overflow-hidden box-shadow-button' onClick={handleClickDisconnect}>
+                  Disconnect Wallet
+                </button>
+              )}
             </div>
             <p className='text-10rem text-#2e1e19'>
               Free Mint is <span className={`px-2 py-1 rounded text-7rem ${isTimeUp ? ' text-red' : ' text-green'}`}>{isTimeUp ? 'END' : 'Live'}</span>
